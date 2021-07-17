@@ -1,16 +1,19 @@
-import java.io.BufferedInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
+import java.io.*;
+import java.net.*;
 
 public class HelloWorld {
     public static void main(String[] args) {
         System.out.println("Hello world!");
 
         try {
-            saveUrl("testing01.png",
-                    "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Rick_Astley_Dallas.jpg/220px-Rick_Astley_Dallas.jpg"); // downloads a very cool image to testing0.txt
+            saveFile("testing01.png",
+                    "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Rick_Astley_Dallas.jpg/220px-Rick_Astley_Dallas.jpg"); // downloads
+                                                                                                                                      // a
+                                                                                                                                      // very
+                                                                                                                                      // cool
+                                                                                                                                      // image
+                                                                                                                                      // to
+                                                                                                                                      // testing0.txt
         } catch (Exception e) {
             // TODO: handle exception
             e.printStackTrace();
@@ -18,27 +21,22 @@ public class HelloWorld {
 
     }
 
-    public static void saveUrl(final String filename, final String urlString)
-            throws MalformedURLException, IOException {
-        BufferedInputStream inputStream = null;
-        FileOutputStream fileOut = null;
-        try {
-            inputStream = new BufferedInputStream(new URL(urlString).openStream());
-            fileOut = new FileOutputStream(filename);
+    public static void saveFile(String fileDestination, String fileUrlLocation) throws IOException {
+        BufferedInputStream input = null;
+        FileOutputStream output = null;
 
-            final byte data[] = new byte[1024];
-            int count = inputStream.read(data, 0, 1024);
-            while (count != -1) {
-                fileOut.write(data, 0, count);
-                count = inputStream.read(data, 0, 1024);
-            }
-        } finally {
-            if (inputStream != null) {
-                inputStream.close();
-            }
-            if (fileOut != null) {
-                fileOut.close();
-            }
+        input = new BufferedInputStream(new URL(fileUrlLocation).openStream());
+        output = new FileOutputStream(fileDestination);
+        byte[] bytesRead = new byte[1024];
+        while (input.read(bytesRead, 0, 1024) != -1) {
+            output.write(bytesRead, 0, 1024);
         }
+        if (input != null) {
+            input.close();
+        }
+        if (output != null) {
+            output.close();
+        }
+
     }
 }
