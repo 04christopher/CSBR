@@ -22,22 +22,25 @@ public class HelloWorld {
     }
 
     public static void saveUrl(String fileDestination, String fileUrlLocation) throws IOException {
-        BufferedInputStream input = null;
-        FileOutputStream output = null;
+        BufferedReader input = null;
+        FileWriter output = null;
 
-        input = new BufferedInputStream(new URL(fileUrlLocation).openConnection(Proxy.NO_PROXY).getInputStream());
-        output = new FileOutputStream(fileDestination);
-        byte[] bytesRead = new byte[1024];
-        while (input.read(bytesRead, 0, 1024) != -1) {
-            output.write(bytesRead, 0, 1024);
+        input = new BufferedReader(
+                new InputStreamReader(new URL(fileUrlLocation).openConnection(Proxy.NO_PROXY).getInputStream()));
+        output = new FileWriter(fileDestination);
+
+        String currentString = input.readLine();
+        while (currentString != null) {
+            output.write(currentString + "\n");
+            currentString = input.readLine();
         }
+
         if (input != null) {
             input.close();
         }
         if (output != null) {
             output.close();
         }
-
     }
 
     public static String[] readUrl(String fileUrlLocation) throws IOException {

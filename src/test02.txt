@@ -188,11 +188,7 @@
 <li><a href="pate-chinois.html">Pâté Chinois (Quebec Style Shepherd’s Pie)</a></li>
 <li><a href="peanut-butter.html">Peanut Butter</a></li>
 <li><a href="pepper-sauce.html">Pepper Sauce</a></li>
-<li><a href="pho-soup.html">Pho Soup<et.html">Omelet</a></li>
-<li><a href="onion-raitha.html">Onion Raitha (Indian Tzatziki)</a></li>
-<li><a href="orange-glorious.html">Orange Glorious</a></li>
-<li><a href="orange-jam.html">Orange jam</a></li>
-<li><a href="pan-pizza.html">Pan p/a></li>
+<li><a href="pho-soup.html">Pho Soup</a></li>
 <li><a href="pickled-onions.html">Pickled Red Onions</a></li>
 <li><a href="pilaf.html">Pilaf</a></li>
 <li><a href="pizza-dough.html">Pizza Dough</a></li>
@@ -314,10 +310,3 @@ See the story of this site unfold in three videos:</p>
     <p><small>Powered by <a href="https://pedantic.software/git/blogit">blogit</a></small></p>
 </footer>
 </body></html>
-
-<h3>Donate to the Based.Cooking maintenance fund</h3>
-
-<p>We are funded by you only, not 20MB of ads or privacy-violating trackers per page.</p>
-
-<ul>
-<li><img src="pix/btc.svg" alt="BTC logo" /> Bitcoin (<a href="pix/bitcoin-bas
