@@ -14,14 +14,14 @@ public class HelloWorld {
         System.out.println("enter filename to download to.");
         String testingFileDestination = systemInputReader.readLine();
 
-        saveUrl(testingFileDestination, testingFileToDownload);
+        saveNonTextUrl(testingFileDestination, testingFileToDownload);
         String[] myStrings = readUrl(testingFileToDownload);
         for (String m : myStrings) {
             System.out.println(m);
         }
     }
 
-    public static void saveUrl(String fileDestination, String fileUrlLocation) throws IOException {
+    public static void saveTextUrl(String fileDestination, String fileUrlLocation) throws IOException {
         BufferedReader input = null;
         FileWriter output = null;
 
@@ -33,6 +33,28 @@ public class HelloWorld {
         while (currentString != null) {
             output.write(currentString + "\n");
             currentString = input.readLine();
+        }
+
+        if (input != null) {
+            input.close();
+        }
+        if (output != null) {
+            output.close();
+        }
+    }
+
+    public static void saveNonTextUrl(String fileDestination, String fileUrlLocation) throws IOException {
+        BufferedInputStream input = null;
+        FileOutputStream output = null;
+
+        input = new BufferedInputStream(new URL(fileUrlLocation).openConnection(Proxy.NO_PROXY).getInputStream());
+        output = new FileOutputStream(fileDestination);
+
+        byte[] myData = new byte[1024];
+        int amount = input.read(myData, 0, 1024);
+        while (amount != -1) {
+            output.write(myData, 0, 1024);
+            amount = input.read(myData, 0, 1024);
         }
 
         if (input != null) {
