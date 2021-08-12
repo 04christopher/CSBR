@@ -3,6 +3,10 @@ import java.awt.event.*;
 
 public class FirstSwing {
     public static void main(String[] args) {
+
+        int a = 3;
+        int c = 5;
+
         JFrame f = new JFrame("Swing!");    
         JTextField tf = new JTextField();
         tf.setBounds(50, 50, 150, 20);
